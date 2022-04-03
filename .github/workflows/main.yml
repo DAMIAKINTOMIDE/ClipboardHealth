@@ -1,6 +1,10 @@
 name: CI
 
 on:
+  pull_request:
+    types: [opened]
+
+on:
   push:
     branches: [ master ]
 
@@ -15,4 +19,4 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: npm install cypress --save-dev
-      - run: cypress run --browser chrome
+      - run: npm cypress run --browser chrome
