@@ -15,4 +15,4 @@ jobs:
           node-version: '14'
       - name: Install dependencies
         run: npm install cypress --save-dev
-      - run: npx cypress run
+      - run: cypress run --browser chrome
