@@ -12,11 +12,8 @@ describe('Amazon test', () => {
         cy.get('#s-refinements > div:nth-child(17) > ul > li:nth-child(2) > span > a > span').contains('Samsung').click();
         cy.get('.a-dropdown-prompt').click();
         cy.get('#s-result-sort-select_2').click();
-    });
-
-    it('Should get about', () => {
-        cy.visit('href="https://www.amazon.in/Samsung-Ultra-Smart-QA65QN90AAKLXL-Black/dp/B0928N2RV3/ref=sr_1_2?qid=1649015065&refinements=p_89%3ASamsung&rnid=3837712031&s=electronics&sr=1-2"');
-        cy.get("#search > div.s-desktop-width-max.s-desktop-content.s-opposite-dir.sg-row > div.s-matching-dir.sg-col-16-of-20.sg-col.sg-col-8-of-12.sg-col-12-of-16 > div > span:nth-child(4) > div.s-main-slot.s-result-list.s-search-results.sg-row > div:nth-child(3) > div > div > div > div > div.a-section.a-spacing-small.s-padding-left-small.s-padding-right-small > div.a-section.a-spacing-none.a-spacing-top-small.s-title-instructions-style > h2 > a").click();
+        cy.get('[data-asin="B0928N2RV3"] > .sg-col-inner > .s-widget-container > .s-card-container > .a-spacing-base > .a-spacing-small > .s-title-instructions-style > .a-size-mini > .a-link-normal').invoke('removeAttr', 'target').click()
+        
         cy.get("#feature-bullets").invoke('text').then((about) => {
             console.log(about);
         });
